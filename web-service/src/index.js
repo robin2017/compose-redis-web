@@ -7,6 +7,7 @@ const redis = new Redis({
 });
 
 app.use(async ctx => {
+  console.log('come into function')
   ctx.body = '计数：' + (~~(await redis.get('count')) + 1);
   redis.incr('count');
 });
